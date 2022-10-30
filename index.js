@@ -4,15 +4,6 @@ const cors = require('cors')
 const app = express();
 
 morgan.token("body", (req, res) => JSON.stringify(req.body));
-
-//C:\Users\hyypr\.fly\bin\flyctl.exe deploy
-//C:\Users\hyypr\.fly\bin\flyctl.exe auth login
-//C:\Users\hyypr\.fly\bin\flyctl.exe --help
-//C:\Users\hyypr\.fly\bin\flyctl.exe launch
-//C:\Users\hyypr\.fly\bin\flyctl.exe logs
-//C:\Users\hyypr\.fly\bin\flyctl.exe open
-
-
 app.use(express.json());
 app.use(cors())
 app.use(morgan(":method :url :status :res[content-length] - :response-time ms"));
@@ -21,22 +12,22 @@ app.use(express.static('build'))
 let persons = [
   {
     id: 1,
-    content: "Arto Hellas",
+    name: "Arto Hellas",
     number: "040-1234567",
   },
   {
     id: 2,
-    content: "Ada Lovelace",
+    name: "Ada Lovelace",
     number: "39-44-5323523",
   },
   {
     id: 3,
-    content: "Dan Abramov",
+    name: "Dan Abramov",
     number: "12-43-234345",
   },
   {
     id: 4,
-    content: "Mary Poppendick",
+    name: "Mary Poppendick",
     number: "39-23-6423122",
   },
 ];
@@ -54,19 +45,17 @@ const requestLogger = (req, res, next) => {
 
 app.use(requestLogger)
 */
-app.get("/", (req, res) => {
-  res.send("<h1>Person app</h1>");
-});
 
 const generateId = () => {
   const maxId = persons.length > 0 ? Math.floor(Math.random() * 10000000) : 0;
   return maxId;
 };
 
-
 //POST http://localhost:3001/api/persons/ HTTP/1.1
 app.post("/api/persons", (req, res) => {
   const {name, number} = req.body;
+  console.log(req.body)
+
   //Check for possible missing elements or same person with same name
   if (!name || !number)
     return res.status(400).json({
