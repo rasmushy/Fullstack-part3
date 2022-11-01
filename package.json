@@ -8,9 +8,9 @@
     "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:ui": "rm -rf build && cd ../puhelinluettelo/ && npm run build && cp -r build ../Fullstack-part3/",
-    "deploy": "flyctl deploy",
+    "deploy": "fly deploy",
     "deploy:full": "npm run build:ui && npm run deploy",
-    "logs:prod": "flyctl logs"
+    "logs:prod": "fly logs"
   },
   "author": "Rasmus Hyyppa",
   "license": "ISC",

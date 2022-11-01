@@ -1,6 +1,6 @@
-# fly.toml file generated for personapp on 2022-10-30T18:56:01+02:00
+# fly.toml file generated for fullstack-personapp on 2022-10-30T22:49:38+02:00
 
-app = "personapp"
+app = "fullstack-personapp"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
