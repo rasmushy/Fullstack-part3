@@ -1,7 +1,7 @@
 FROM debian:bullseye as builder
 
 ARG NODE_VERSION=18.2.0
-
+EXPOSE 8080
 RUN apt-get update; apt install -y curl
 RUN curl https://get.volta.sh | bash
 ENV VOLTA_HOME /root/.volta
