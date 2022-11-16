@@ -58,10 +58,10 @@ mongoose.connect(url)
 //  res.status(404).send({error: "unknown endpoint"});
 //}
 
- // //janky way, mby figure here some better way :D
- // const dbLength = Person.find({}).then((persons) => {
- //   persons.map((person) => person);
- // }).length;
+// //janky way, mby figure here some better way :D
+// const dbLength = Person.find({}).then((persons) => {
+//   persons.map((person) => person);
+// }).length;
 
 const personObj = new Person({
   name: personName,
@@ -70,13 +70,14 @@ const personObj = new Person({
 
 if(!personName || !personNumber) {
   Person.find({}).then(result => {
-    console.log("phonebook:")
+    console.log('phonebook:')
     result.forEach(person => {
-      console.log(person.name + " " + person.number)
+      console.log(person.name + ' ' + person.number)
     })
     mongoose.connection.close()
   })
 }else{
+  // eslint-disable-next-line no-unused-vars
   personObj.save().then(result => {
     console.log(personObj)
     console.log(`added ${personObj.name} number ${personObj.number} to phonebook`)

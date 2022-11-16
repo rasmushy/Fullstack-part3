@@ -1,2 +1,2 @@
-https://fullstack-personapp.fly.dev/index.html
+https://fullstack-personapp.fly.dev/
 @author rasmushy
